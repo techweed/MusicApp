@@ -1,0 +1,79 @@
+.homebody {
+  overflow: hidden;
+  margin: 0px;
+  height: 100%;
+}
+
+.ListBody {
+  display: flex;
+  align-items: center;
+  margin: 20px;
+  /* padding-top: 100px; */
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.item {
+  background-color: white;
+  margin: 10px;
+  width: 80%;
+  flex-direction: row;
+  display: flex;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 150px;
+  box-shadow: 0 5px 10px rgba(154, 160, 185, 0.5);
+}
+.item:hover {
+  box-shadow: 0 5px 10px rgba(154, 160, 185, 0.5);
+}
+
+.cardRight {
+  margin-right: 10px;
+}
+.cardLeft {
+  flex-direction: column;
+  /* border-left: 0.1em solid rgba(160, 160, 255, 0.1); */
+  margin: 20px;
+}
+.desc {
+  font-size: 15px;
+}
+.desc-i {
+  font-size: 14px;
+  font-style: italic;
+}
+.cardTitle {
+  font-size: 20px;
+  font-weight: bolder;
+  margin-bottom: 20px;
+}
+
+.image {
+  object-fit: cover;
+  height: 150px;
+  width: 150px;
+}
+
+@media screen and (max-width: 769px) {
+  .item {
+    padding: 0px;
+    width: 90%;
+    height: 150px;
+  }
+  .ListBody {
+    margin: 0px;
+  }
+  .cardRight {
+    margin: 0px;
+  }
+  .cardLeft {
+    border-left: 0em solid rgba(160, 160, 255, 0.1);
+    padding-left: 0px;
+  }
+  .image {
+    object-fit: cover;
+    height: 150px;
+    width: 150px;
+  }
+}

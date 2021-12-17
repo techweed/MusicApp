@@ -1,0 +1,21 @@
+.search {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  background-color: unset;
+}
+.search::placeholder {
+  color: grey;
+}
+.input-container {
+  flex: 1 1;
+  display: flex;
+  margin: 20px 10px;
+  padding: 2%;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(154, 160, 185, 0.5);
+  align-items: center;
+  width: 76%;
+}
