@@ -37,6 +37,11 @@
   font-weight: normal;
   font-size: 12px;
 }
+.playlistTitle {
+  display: flex;
+  width: 80%;
+  font-weight: bold;
+}
 
 .cardLeft {
   flex: 1 1;

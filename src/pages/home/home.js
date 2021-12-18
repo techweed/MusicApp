@@ -13,23 +13,30 @@ const Home = () => {
   const [showPlaylist, setShowPlaylist] = useState(false);
 
   useEffect(() => {
-    Promise.all([
-      fetch("https://jsonplaceholder.typicode.com/photos").then((value) =>
-        value.json()
-      ),
-      fetch(" https://jsonplaceholder.typicode.com/albums").then((value) =>
-        value.json()
-      ),
-    ])
-      .then(([songs, albums]) => {
-        setSongList(songs);
-        setAlbumList(albums);
-        localStorage.setItem("songs", JSON.stringify(songs));
-        localStorage.setItem("albums", JSON.stringify(albums));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    const songs = JSON.parse(localStorage.getItem("songs"));
+    const albums = JSON.parse(localStorage.getItem("albums"));
+    if (songs && albums) {
+      setSongList(songs);
+      setAlbumList(albums);
+    } else {
+      Promise.all([
+        fetch("https://jsonplaceholder.typicode.com/photos").then((value) =>
+          value.json()
+        ),
+        fetch(" https://jsonplaceholder.typicode.com/albums").then((value) =>
+          value.json()
+        ),
+      ])
+        .then(([songs, albums]) => {
+          setSongList(songs);
+          setAlbumList(albums);
+          localStorage.setItem("songs", JSON.stringify(songs));
+          localStorage.setItem("albums", JSON.stringify(albums));
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   }, []);
 
   //Search Function
