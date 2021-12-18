@@ -102,19 +102,27 @@ const Playlist = ({
         </div>
       )}
       {state === 1 &&
-        playlist?.map((item, index) => (
-          <RenderPlaylist key={item?.createdAt} item={item} index={index} />
+        (playlist.length ? (
+          playlist?.map((item, index) => (
+            <RenderPlaylist key={item?.createdAt} item={item} index={index} />
+          ))
+        ) : (
+          <div>Create a playlist!</div>
         ))}
       {state === 2 &&
-        playlist?.[selectedPlaylist]?.songs?.map((item) => (
-          <RenderSongList
-            key={item.id}
-            song={item}
-            albumList={albumList}
-            playlist={playlist}
-            setPlaylist={setPlaylist}
-            selectedPlaylist={selectedPlaylist}
-          />
+        (playlist?.[selectedPlaylist]?.songs.length ? (
+          playlist?.[selectedPlaylist]?.songs?.map((item) => (
+            <RenderSongList
+              key={item.id}
+              song={item}
+              albumList={albumList}
+              playlist={playlist}
+              setPlaylist={setPlaylist}
+              selectedPlaylist={selectedPlaylist}
+            />
+          ))
+        ) : (
+          <div>Add a song to the list!</div>
         ))}
     </>
   );
