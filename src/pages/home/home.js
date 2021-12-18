@@ -47,6 +47,7 @@ const Home = () => {
 
   return (
     <div className="homebody">
+      <div>Hello</div>
       {songList ? (
         <>
           <TabBar setShowPlaylist={setShowPlaylist} />
