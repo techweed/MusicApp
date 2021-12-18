@@ -5,7 +5,7 @@ import AppSpinner from "./components/spinner";
 
 const AppRoutes = () => {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <Routes>
         {routes.map(({component: Component, path, ...rest}) => (
           <Route

@@ -1,15 +1,16 @@
-import React, {useState} from "react";
-import SearchBar from "../../components/searchBar";
+import React from "react";
 import RenderSongList from "../../components/SongListItem/listItem";
 import "./styles.css";
 
-const Playlist = ({albumList, songList}) => {
-  const [playlist, setPlaylist] = useState(
-    JSON.parse(localStorage.getItem("playlist")) || []
-  );
-  const [selectedPlaylist, setSelectedPlaylist] = useState(null);
-  const [state, setState] = useState(1);
-
+const Playlist = ({
+  albumList,
+  state,
+  setState,
+  playlist,
+  setPlaylist,
+  selectedPlaylist,
+  setSelectedPlaylist,
+}) => {
   const RenderPlaylist = ({item, index}) => {
     return (
       <div
@@ -24,7 +25,18 @@ const Playlist = ({albumList, songList}) => {
           <div className="desc">{item?.songs?.length}</div>
           <div className="desc-i">{item?.createdAt}</div>
         </div>
-        <div className="cardEnd">x</div>
+        <div
+          className="cardEnd"
+          onClick={(e) => {
+            e.stopPropagation();
+            let temp = [...playlist];
+            temp.splice(index, 1);
+            setPlaylist(temp);
+            localStorage.setItem("playlist", JSON.stringify(temp));
+          }}
+        >
+          x
+        </div>
       </div>
     );
   };
@@ -85,7 +97,8 @@ const Playlist = ({albumList, songList}) => {
       )}
       {state !== 1 && (
         <div className="playlistTitle">
-          {`${playlist[selectedPlaylist].name} (${playlist[selectedPlaylist].songs?.length})`}
+          {state === 3 && "Add songs to "}
+          {`${playlist[selectedPlaylist]?.name} (${playlist[selectedPlaylist]?.songs?.length})`}
         </div>
       )}
       {state === 1 &&
@@ -94,26 +107,15 @@ const Playlist = ({albumList, songList}) => {
         ))}
       {state === 2 &&
         playlist?.[selectedPlaylist]?.songs?.map((item) => (
-          <RenderSongList key={item.id} song={item} albumList={albumList} />
+          <RenderSongList
+            key={item.id}
+            song={item}
+            albumList={albumList}
+            playlist={playlist}
+            setPlaylist={setPlaylist}
+            selectedPlaylist={selectedPlaylist}
+          />
         ))}
-
-      {state === 3 && (
-        <>
-          <SearchBar />
-          {songList?.map((item) => (
-            <RenderSongList
-              key={item.id}
-              song={item}
-              albumList={albumList}
-              state={state}
-              setState={setState}
-              selectedPlaylist={selectedPlaylist}
-              setPlaylist={setPlaylist}
-              playlist={playlist}
-            />
-          ))}
-        </>
-      )}
     </>
   );
 };

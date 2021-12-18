@@ -36,6 +36,22 @@ const RenderSongList = ({
         </div>
         <div className="desc">{song.title}</div>
       </div>
+      {state !== 3 && (
+        <div
+          className="cardEnd"
+          onClick={(e) => {
+            e.stopPropagation();
+            let temp = playlist[selectedPlaylist].songs.filter(
+              (item) => item.id !== song.id
+            );
+            playlist[selectedPlaylist].songs = temp;
+            setPlaylist([...playlist]);
+            localStorage.setItem("playlist", JSON.stringify(playlist));
+          }}
+        >
+          x
+        </div>
+      )}
     </div>
   );
 };
