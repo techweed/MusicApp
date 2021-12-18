@@ -21,8 +21,7 @@ const Playlist = ({
         }}
       >
         <div className="cardLeft">
-          <div className="cardTitle">{item?.name}</div>
-          <div className="desc">{item?.songs?.length}</div>
+          <div className="cardTitle">{`${item?.name} (${item?.songs?.length})`}</div>
           <div className="desc-i">{item?.createdAt}</div>
         </div>
         <div
@@ -116,6 +115,7 @@ const Playlist = ({
               key={item.id}
               song={item}
               albumList={albumList}
+              state={state}
               playlist={playlist}
               setPlaylist={setPlaylist}
               selectedPlaylist={selectedPlaylist}

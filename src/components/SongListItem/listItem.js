@@ -36,7 +36,7 @@ const RenderSongList = ({
         </div>
         <div className="desc">{song.title}</div>
       </div>
-      {state !== 3 && (
+      {state === 2 && (
         <div
           className="cardEnd"
           onClick={(e) => {
