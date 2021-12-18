@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/MusicApp/static/css/main.f4d0d442.css",
-    "main.js": "/MusicApp/static/js/main.9f01c718.js",
+    "main.js": "/MusicApp/static/js/main.223d317e.js",
     "static/css/61.f4e022de.chunk.css": "/MusicApp/static/css/61.f4e022de.chunk.css",
-    "static/js/61.a765531c.chunk.js": "/MusicApp/static/js/61.a765531c.chunk.js",
+    "static/js/61.6f3be35a.chunk.js": "/MusicApp/static/js/61.6f3be35a.chunk.js",
     "static/js/787.f174bf6e.chunk.js": "/MusicApp/static/js/787.f174bf6e.chunk.js",
     "index.html": "/MusicApp/index.html",
     "main.f4d0d442.css.map": "/MusicApp/static/css/main.f4d0d442.css.map",
-    "main.9f01c718.js.map": "/MusicApp/static/js/main.9f01c718.js.map",
+    "main.223d317e.js.map": "/MusicApp/static/js/main.223d317e.js.map",
     "61.f4e022de.chunk.css.map": "/MusicApp/static/css/61.f4e022de.chunk.css.map",
-    "61.a765531c.chunk.js.map": "/MusicApp/static/js/61.a765531c.chunk.js.map",
+    "61.6f3be35a.chunk.js.map": "/MusicApp/static/js/61.6f3be35a.chunk.js.map",
     "787.f174bf6e.chunk.js.map": "/MusicApp/static/js/787.f174bf6e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f4d0d442.css",
-    "static/js/main.9f01c718.js"
+    "static/js/main.223d317e.js"
   ]
 }
